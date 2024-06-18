@@ -25,7 +25,35 @@
     for ($i = 0; $i < 16; $i++){
         echo $i . ' ' . endings($i, $m) . "\n"; 
     };
+        echo  .PHP_EOL . "Другой код" .PHP_EOL;
+
+    function getWoron($num, $vorona, $vorony, $voron ){
+        $number100 = $num % 100;
+        $number10 = $num %10;
+               // Исключения до 20 
+        if ($number100 >= 5 && $number100 <= 20){
+            return $voron;
+        }
+        // Все остальное последнее цифра числа
+        elseif ($number10 == 1){
+            return $vorona;
+        }
+        else if ($number10 >= 2 && $number10 <= 4){
+            return $vorony;
+        }
+        else{
+            return $voron;
+        }
+        return $var;
+    }
+    // Будет рабоать до 100
+    for($i = 0; $i < 35; $i++){
+        echo  "\n" . $i .PHP_EOL . getWoron($i, "Ворона", "Вороны", "Ворон");
+    }
+
+
  ?>
+
 /**
 Можно заменить на:
 Выявленные правила:
