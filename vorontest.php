@@ -25,7 +25,7 @@
     for ($i = 0; $i < 16; $i++){
         echo $i . ' ' . endings($i, $m) . "\n"; 
     };
-        echo  .PHP_EOL . "Другой код" .PHP_EOL;
+        echo  PHP_EOL . "Другой код" .PHP_EOL;
 
     function getWoron($num, $vorona, $vorony, $voron ){
         $number100 = $num % 100;
