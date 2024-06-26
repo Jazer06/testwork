@@ -2,7 +2,7 @@
     function getWoron($number, $vorona, $vorony, $voron ){
         $EndOfnumber = $number % 10;
       // 1) Окончание зависит от последней цифры числа //    2) Пишем дополнительный код для исключений
-        if ($EndOfnumber >= 5 && $EndOfnumber <= 9 ||  $number >=11 && $number <= 14){
+        if ($EndOfnumber >= 5 && $EndOfnumber <= 9 ||  $number >=11 && $number <= 14 || $EndOfnumber == 0){
             return $voron;
             // 4) Если число оканчивается на 5,6,7,8,9 
         }
@@ -14,11 +14,6 @@
             return $vorony;
             // 3) Если число оканчивается на 2,3 или 4, то окончание "ы"
         }
-        else{ 
-            return $voron;
-            // 0, то окончание нет
-        }
-        return $var;
     }
     for($i = 0; $i < 102; $i++){
            echo $i . ' ' . getWoron($i, "Ворона", "Вороны", "Ворон") . "\n";
