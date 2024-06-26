@@ -1,56 +1,28 @@
 <?php 
-// Функция Склонения
-    function endings($m, $var){
-        // 1) Окончание зависит от последней цифры числа
-        $m0 = $m % 10;
-        // 2) Если число оканчивается на 1, то окончание "а"
-        if($m == 1){
-            return $var[1]; 
-        }
-        // 3) Если число оканчивается на 2,3 или 4, то окончание "ы"
-        if($m >=2 && $m <= 4 ){
-           return $var[2];
-        }
-        // 4) Если число оканчивается на 5,6,7,8,9 или 0, то окончание нет
-        if($m >= 5 && $m <= 9 || $m0 == 0){
-           return $var[0];
-        }
-        // 5) Если число равно 11, 12, 13 или 14, то окончаний нет
-        if($m >= 11 && $m <= 14){
-            return $var[0];
-        }
-        return $var[0] ;
-    }
-    $m = ['Ворон', 'Ворона', 'Вороны', 'Исключение'];
-    for ($i = 0; $i < 16; $i++){
-        echo $i . ' ' . endings($i, $m) . "\n"; 
-    };
-        echo  PHP_EOL . "Другой код" .PHP_EOL;
-
-    function getWoron($num, $vorona, $vorony, $voron ){
-        $number100 = $num % 100;
-        $number10 = $num %10;
-               // Исключения до 20 
-        if ($number100 >= 5 && $number100 <= 20){
+    function getWoron($number, $vorona, $vorony, $voron ){
+        $EndOfnumber = $number % 10;
+      // 1) Окончание зависит от последней цифры числа //    2) Пишем дополнительный код для исключений
+        if ($EndOfnumber >= 5 && $EndOfnumber <= 9 ||  $number >=11 && $number <= 14){
             return $voron;
+            // 4) Если число оканчивается на 5,6,7,8,9 
         }
-        // Все остальное последнее цифра числа
-        elseif ($number10 == 1){
+        elseif ($EndOfnumber == 1){
             return $vorona;
+            // 2) Если число оканчивается на 1, то окончание "а"
         }
-        else if ($number10 >= 2 && $number10 <= 4){
+        elseif ($EndOfnumber >= 2 && $EndOfnumber <= 4){
             return $vorony;
+            // 3) Если число оканчивается на 2,3 или 4, то окончание "ы"
         }
-        else{
+        else{ 
             return $voron;
+            // 0, то окончание нет
         }
         return $var;
     }
-    // Будет рабоать до 100
-    for($i = 0; $i < 35; $i++){
-        echo  "\n" . $i .PHP_EOL . getWoron($i, "Ворона", "Вороны", "Ворон");
+    for($i = 0; $i < 102; $i++){
+           echo $i . ' ' . getWoron($i, "Ворона", "Вороны", "Ворон") . "\n";
     }
-
 
  ?>
 

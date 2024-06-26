@@ -1,20 +1,25 @@
 <?php 
-// Марсоход, отправляет отчеты о пробах.
-class Grunt{
-	public function proba(){        
-		$takeProb = "Взял";
-	// Класс марсохода берет пробу с функции proba()      
-		$array = ["Скальный грунт", "Глинистый грунт", "Скальный грунт", "Крупноблочный грунт"];
-		return $array[array_rand($array)];   
-	}	
-}
-class Marsohod{       
-	public function report(){
-		$grunt = new Grunt();  // Обращение к пробе
-		echo "Марсоход отправляет отчет:" . PHP_EOL . $grunt->proba();      
-		}
-}
+  class Marsohod{
+
+    public function getProbeGrunt(){
+        $proba = new Grunt();
+        echo "Проба грунта..." . PHP_EOL . $proba->variablesGunt()  . PHP_EOL;
+    }
+    public function getReport(){
+        echo  "Отправка отчета.." . rand(5, 15);
+    }
+    public function weightGrunt(){
+        echo  PHP_EOL . "Марсоход собрал камней ..." . " " . rand(3,12);
+    }
+  }
+  class Grunt{
+    public function variablesGunt(){
+        $array = ["Скальный грунт!", "Глинистый грунт!", "Скальный грунт!", "Крупноблочный грунт!"];
+        return $array[array_rand($array)];
+    }
+  }
 $objMarosohod = new Marsohod();
-	// Обращение к методу в марсоходе
-$objMarosohod->report();
+$objMarosohod->getProbeGrunt();
+$objMarosohod->getReport();
+$objMarosohod->weightGrunt();
  ?>
